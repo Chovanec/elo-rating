@@ -1,8 +1,7 @@
-<?php
 /**
  * This class calculates ratings based on the Elo system used in chess.
  *
- * @author Priyesh Patel <priyesh@pexat.com>
+ * @author Priyesh Patel <priyesh@pexat.com> & Michal Chovanec <michalchovaneceu@gmail.com>
  * @copyright Copyright (c) 2011 onwards, Priyesh Patel
  * @license Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
  */
@@ -43,6 +42,30 @@ class Rating
      * @param int Score of B
      */
     public function  __construct($ratingA,$ratingB,$scoreA,$scoreB)
+    {
+        $this -> _ratingA = $ratingA;
+        $this -> _ratingB = $ratingB;
+        $this -> _scoreA = $scoreA;
+        $this -> _scoreB = $scoreB;
+
+        $expectedScores = $this -> _getExpectedScores($this -> _ratingA,$this -> _ratingB);
+        $this -> _expectedA = $expectedScores['a'];
+        $this -> _expectedB = $expectedScores['b'];
+
+        $newRatings = $this ->_getNewRatings($this -> _ratingA, $this -> _ratingB, $this -> _expectedA, $this -> _expectedB, $this -> _scoreA, $this -> _scoreB);
+        $this -> _newRatingA = $newRatings['a'];
+        $this -> _newRatingB = $newRatings['b'];
+    }
+
+    /**
+     * Set new input data.
+     *
+     * @param int Current rating of A
+     * @param int Current rating of B
+     * @param int Score of A
+     * @param int Score of B
+     */
+    public function setNewSettings($ratingA,$ratingB,$scoreA,$scoreB)
     {
         $this -> _ratingA = $ratingA;
         $this -> _ratingB = $ratingB;
