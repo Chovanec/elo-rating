@@ -18,19 +18,15 @@ class Rating
      * Protected & private variables.
      */
     protected $_ratingA;
-
     protected $_ratingB;
-
+    
     protected $_scoreA;
-
     protected $_scoreB;
 
     protected $_expectedA;
-
     protected $_expectedB;
 
     protected $_newRatingA;
-
     protected $_newRatingB;
 
     /**
@@ -44,18 +40,18 @@ class Rating
      */
     public function  __construct($ratingA,$ratingB,$scoreA,$scoreB)
     {
-        $this -> _ratingA = $ratingA;
-        $this -> _ratingB = $ratingB;
-        $this -> _scoreA = $scoreA;
-        $this -> _scoreB = $scoreB;
+        $this->_ratingA = $ratingA;
+        $this->_ratingB = $ratingB;
+        $this->_scoreA = $scoreA;
+        $this->_scoreB = $scoreB;
 
         $expectedScores = $this -> _getExpectedScores($this -> _ratingA,$this -> _ratingB);
-        $this -> _expectedA = $expectedScores['a'];
-        $this -> _expectedB = $expectedScores['b'];
+        $this->_expectedA = $expectedScores['a'];
+        $this->_expectedB = $expectedScores['b'];
 
         $newRatings = $this ->_getNewRatings($this -> _ratingA, $this -> _ratingB, $this -> _expectedA, $this -> _expectedB, $this -> _scoreA, $this -> _scoreB);
-        $this -> _newRatingA = $newRatings['a'];
-        $this -> _newRatingB = $newRatings['b'];
+        $this->_newRatingA = $newRatings['a'];
+        $this->_newRatingB = $newRatings['b'];
     }
 
     /**
