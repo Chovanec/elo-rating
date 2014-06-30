@@ -1,4 +1,4 @@
-#Elo Rating Class
+#Elo Rating PHP
 A PHP class which implements the [Elo rating system](http://en.wikipedia.org/wiki/Elo_rating_system).
 
 #Usage
