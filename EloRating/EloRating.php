@@ -2,9 +2,9 @@
 /**
  * This class calculates ratings based on the Elo system used in chess.
  *
- * @author Priyesh Patel <priyesh@pexat.com> & Michal Chovanec <michalchovaneceu@gmail.com>
- * @copyright Copyright (c) 2011 onwards, Priyesh Patel
- * @license Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
+ * @author Michal Chovanec <michalchovaneceu@gmail.com>
+ * @copyright Copyright © 2012 Michal Chovanec
+ * @license Creative Commons Attribution 4.0 International License
  */
 class Rating
 {
