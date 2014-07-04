@@ -10,7 +10,7 @@
         }
     ],
     "autoload": {
-        "elo-rating": {
+        "psr-0": {
             "EloRating\\": ""
         }
     }
