@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This class calculates ratings based on the Elo system used in chess.
  *
