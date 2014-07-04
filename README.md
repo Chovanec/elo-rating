@@ -7,12 +7,14 @@ A PHP class which implements the [Elo rating system](http://en.wikipedia.org/wik
     // player B elo = 2000
     // player A lost
     // player B win
+    
     $rating = new Rating(1000, 2000, 0, 1);
 
     // player A elo = 1000
     // player B elo = 2000
     // player A draw
     // player B draw
+    
     $rating = new Rating(1000, 2000, .5, .5);
     
     $results = $rating->getNewRatings();
