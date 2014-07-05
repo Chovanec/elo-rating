@@ -8,5 +8,10 @@
             "name": "Michal Chovanec",
             "homepage": "http://michalchovanec.com/"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {
+            "Rating": "Chovanec"
+        }
+    }
 }
