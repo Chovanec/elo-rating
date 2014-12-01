@@ -3,6 +3,8 @@ A PHP class which implements the [Elo rating system](http://en.wikipedia.org/wik
 
 #Usage
 
+    require 'src/Rating/Rating.php';
+
     // player A elo = 1000
     // player B elo = 2000
     // player A lost
