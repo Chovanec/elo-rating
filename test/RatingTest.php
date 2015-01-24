@@ -56,6 +56,12 @@ class RatingTest extends PHPUnit_Framework_TestCase
 
     $this->assertEquals($results['a'], 2505 );
     $this->assertEquals($results['b'], 2495 );
+
+    $rating = new Rating\Rating(2500, 2500, .5, .5, 50, 50);
+    $results = $rating->getNewRatings();
+
+    $this->assertEquals($results['a'], 2500 );
+    $this->assertEquals($results['b'], 2500 );
   }
 
 

@@ -7,25 +7,29 @@ A PHP class which implements the [Elo rating system](http://en.wikipedia.org/wik
 
     // player A elo = 1000
     // player B elo = 2000
+    // player A has played 2 games
+    // player B has played 20 games
     // player A lost
     // player B win
-    
-    $rating = new Rating(1000, 2000, 0, 1);
+
+    $rating = new Rating(1000, 2000, 0, 1, 2, 20);
 
     // player A elo = 1000
     // player B elo = 2000
+    // player A has played 2 games
+    // player B has played 20 games
     // player A draw
     // player B draw
-    
-    $rating = new Rating(1000, 2000, .5, .5);
-    
+
+    $rating = new Rating(1000, 2000, .5, .5, 2, 20);
+
     $results = $rating->getNewRatings();
-    
+
     echo "New rating for player A: " . $results['a'];
     echo "New rating for player B: " . $results['b'];
-    
+
 ---------------------------------------
 
 #Credits
-    
+
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Elo Rating PHP</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://michalchovanec.com" property="cc:attributionName" rel="cc:attributionURL">Michal Chovanec</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
