@@ -18,6 +18,10 @@ class Rating
      */
     const KFACTOR = 16;
 
+    const WIN = 1;
+    const DRAW = 0.5;
+    const LOST = 0;
+
     /**
      * Protected & private variables.
      */
