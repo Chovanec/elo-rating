@@ -48,18 +48,7 @@ class Rating
      */
     public function  __construct($ratingA,$ratingB,$scoreA,$scoreB)
     {
-        $this->_ratingA = $ratingA;
-        $this->_ratingB = $ratingB;
-        $this->_scoreA = $scoreA;
-        $this->_scoreB = $scoreB;
-
-        $expectedScores = $this -> _getExpectedScores($this -> _ratingA,$this -> _ratingB);
-        $this->_expectedA = $expectedScores['a'];
-        $this->_expectedB = $expectedScores['b'];
-
-        $newRatings = $this ->_getNewRatings($this -> _ratingA, $this -> _ratingB, $this -> _expectedA, $this -> _expectedB, $this -> _scoreA, $this -> _scoreB);
-        $this->_newRatingA = $newRatings['a'];
-        $this->_newRatingB = $newRatings['b'];
+        $this->setNewSettings($ratingA, $ratingB, $scoreA, $scoreB);
     }
 
     /**
