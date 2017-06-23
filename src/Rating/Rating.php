@@ -18,6 +18,10 @@ class Rating
      */
     const KFACTOR = 16;
 
+    const WIN = 1;
+    const DRAW = 0.5;
+    const LOST = 0;
+
     /**
      * Protected & private variables.
      */
@@ -34,37 +38,27 @@ class Rating
     protected $_newRatingB;
 
     /**
-     * Costructor function which does all the maths and stores the results ready
+     * Constructor function which does all the maths and stores the results ready
      * for retrieval.
      *
-     * @param int Current rating of A
-     * @param int Current rating of B
-     * @param int Score of A
-     * @param int Score of B
+     * @param int $ratingA Current rating of A
+     * @param int $ratingB Current rating of B
+     * @param int $scoreA Score of A
+     * @param int $scoreB Score of B
      */
     public function  __construct($ratingA,$ratingB,$scoreA,$scoreB)
     {
-        $this->_ratingA = $ratingA;
-        $this->_ratingB = $ratingB;
-        $this->_scoreA = $scoreA;
-        $this->_scoreB = $scoreB;
-
-        $expectedScores = $this -> _getExpectedScores($this -> _ratingA,$this -> _ratingB);
-        $this->_expectedA = $expectedScores['a'];
-        $this->_expectedB = $expectedScores['b'];
-
-        $newRatings = $this ->_getNewRatings($this -> _ratingA, $this -> _ratingB, $this -> _expectedA, $this -> _expectedB, $this -> _scoreA, $this -> _scoreB);
-        $this->_newRatingA = $newRatings['a'];
-        $this->_newRatingB = $newRatings['b'];
+        $this->setNewSettings($ratingA, $ratingB, $scoreA, $scoreB);
     }
 
     /**
      * Set new input data.
      *
-     * @param int Current rating of A
-     * @param int Current rating of B
-     * @param int Score of A
-     * @param int Score of B
+     * @param int $ratingA Current rating of A
+     * @param int $ratingB Current rating of B
+     * @param int $scoreA Score of A
+     * @param int $scoreB Score of B
+     * @return self
      */
     public function setNewSettings($ratingA,$ratingB,$scoreA,$scoreB)
     {
@@ -80,12 +74,14 @@ class Rating
         $newRatings = $this ->_getNewRatings($this -> _ratingA, $this -> _ratingB, $this -> _expectedA, $this -> _expectedB, $this -> _scoreA, $this -> _scoreB);
         $this -> _newRatingA = $newRatings['a'];
         $this -> _newRatingB = $newRatings['b'];
+
+        return $this;
     }
 
     /**
      * Retrieve the calculated data.
      *
-     * @return Array An array containing the new ratings for A and B.
+     * @return array An array containing the new ratings for A and B.
      */
     public function getNewRatings()
     {
@@ -95,10 +91,13 @@ class Rating
         );
     }
 
-    /**
-     * Protected & private functions begin here
-     */
+    // Protected & private functions begin here
 
+    /**
+     * @param int $ratingA The Rating of Player A
+     * @param int $ratingB The Rating of Player B
+     * @return array
+     */
     protected function _getExpectedScores($ratingA,$ratingB)
     {
         $expectedScoreA = 1 / ( 1 + ( pow( 10 , ( $ratingB - $ratingA ) / 400 ) ) );
@@ -110,6 +109,15 @@ class Rating
         );
     }
 
+    /**
+     * @param int $ratingA The Rating of Player A
+     * @param int $ratingB The Rating of Player A
+     * @param int $expectedA The expected score of Player A
+     * @param int $expectedB The expected score of Player B
+     * @param int $scoreA The score of Player A
+     * @param int $scoreB The score of Player B
+     * @return array
+     */
     protected function _getNewRatings($ratingA,$ratingB,$expectedA,$expectedB,$scoreA,$scoreB)
     {
         $newRatingA = $ratingA + ( self::KFACTOR * ( $scoreA - $expectedA ) );
