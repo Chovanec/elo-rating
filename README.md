@@ -1,6 +1,10 @@
 # Elo Rating PHP
 A PHP class which implements the [Elo rating system](http://en.wikipedia.org/wiki/Elo_rating_system).
 
+# Install with composer
+
+`composer require chovanec/elo-rating dev-master`
+
 # Usage
 
     require 'src/Rating/Rating.php';
