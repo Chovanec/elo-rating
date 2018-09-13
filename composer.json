@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Chovanec\\Rating\\": ""
+      "Chovanec\\Rating\\": "src/"
     }
   },
   "minimum-stability": "stable"
