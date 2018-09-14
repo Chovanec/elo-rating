@@ -5,6 +5,8 @@ A PHP class which implements the [Elo rating system](http://en.wikipedia.org/wik
 
 `composer require chovanec/elo-rating dev-master`
 
+Link to Packagist.org: https://packagist.org/packages/chovanec/elo-rating
+
 # Usage
 
     require 'src/Rating/Rating.php';
